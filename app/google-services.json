@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "501342609279",
+    "project_id": "silmoo-7e148",
+    "storage_bucket": "silmoo-7e148.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501342609279:android:118d8c918de5bf1939844a",
+        "android_client_info": {
+          "package_name": "com.example.silmoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "501342609279-2085m788ke27ofbo4d6ns46l709q7dt8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqbm4vSw9epkWeSi-9VVH9KrX_zPFI1rQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501342609279-2085m788ke27ofbo4d6ns46l709q7dt8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

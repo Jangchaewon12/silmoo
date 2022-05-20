@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">silmoo</string>
+    <string name="reFind01_phoneNum">예약에 쓰인 전화번호를 입력해주세요</string>
+    <string name="reFind01_ipryouk">입력</string>
+</resources>
