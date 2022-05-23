@@ -1,10 +1,7 @@
 package com.example.silmoo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,95 +9,63 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 public class yeab_app_resfind01 extends AppCompatActivity {
 
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
-    DatabaseReference ref = database.getReference();                    //DatabaseReference는 데이터베이스의 특정 위치로 연결하는 거
-    private EditText yeab_app_resfind01_et_000;                         //전화번호 입력필드
-    private Button yeab_app_resfind01_btn_000;                          //'입력' 버튼
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
+    private EditText yeab_app_resfind01_et_000;                    //전화번호 입력필드
+    private Button yeab_app_resfind01_btn_000;                     //입력 버튼
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.yeab_app_resfind01);
 
-
-        yeab_app_resfind01_et_000 = findViewById(R.id.yeab_app_resfind01_et_000);//버튼 아이디 연결
-        yeab_app_resfind01_btn_000 = findViewById(R.id.yeab_app_resfind01_btn_000);//'입력' 버튼 연결
+        yeab_app_resfind01_et_000 = findViewById(R.id.yeab_app_resfind01_et_000);
+        yeab_app_resfind01_btn_000 = findViewById(R.id.yeab_app_resfind01_btn_000);
 
         yeab_app_resfind01_btn_000.setOnClickListener(new View.OnClickListener() {//입력버튼이 눌리면 아래것을 실행 해라.
             @Override
             public void onClick(View v) {
                 // 전화번호 string으로 저장
-                String getEdit = yeab_app_resfind01_et_000.getText().toString().trim();
-                //공백이 있거나, 특수문자가 있거나, 11자리가 아닌 경우 값 안받고 Toast로 안내창 띄움 - https://kkh0977.tistory.com/53 특수문자 확인하는 코드 출처
-                String getArrayList;
-                ArrayList<Character> arrayList = new ArrayList<>();
-                if(getEdit.getBytes().length<11 || getEdit.getBytes().length>11){
-                    Toast.makeText(yeab_app_resfind01.this, "숫자로만 11자리 입력해야 합니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                }else{
-                    for (int i = 0; i < getEdit.length(); i++) {
-                        if (String.valueOf(getEdit.charAt(i)).matches("[^a-zA-Z0-9\\s]")) { //특수문자 아닌 경우 배열에 저장
-                            Toast.makeText(yeab_app_resfind01.this, "공백, 특수문자는 입력 불가합니다.", Toast.LENGTH_SHORT).show();
-                            return;
-                        }else {arrayList.add(getEdit.charAt(i));}
-                    }
+                String getEdit = yeab_app_resfind01_et_000.getText().toString();
 
-                    //배열 값 가져와서 스트링으로 만들기
-                    getArrayList = arrayList.toString();
-
-                    //배열 스트링 한 값 해싱
-                    String hashingPhoneNum = hashing(getArrayList);
-                    inputUserInfo(hashingPhoneNum);
+                if ((getEdit.getBytes().length <= 0) || (getEdit.getBytes().length > 11)) {
+                    Toast.makeText(yeab_app_resfind01.this, "최대 11자리 숫자를 입력하세요.", Toast.LENGTH_SHORT).show();
+                } else if ((!getEdit.isEmpty())) {//빈값이 아니면 저장
+                    inputUserPhoneNum(hashing(getEdit));
                     //입력 성공 출력 Toast
                     Toast.makeText(yeab_app_resfind01.this, "입력 성공", Toast.LENGTH_SHORT).show();
-
                     //화면 전환
-                    ref.child("inputUserInfo").child("phoneNum").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            String value = dataSnapshot.getValue(String.class);
-                            if(value==hashingPhoneNum){
-                                daezoSunggongDialog();
-                            }else{
-                                daezoSilpaeDialog();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-                        }
-                    });
-
-
+                    Intent intent = new Intent(getApplicationContext(),yeab_app_resfind01_popup.class);
+                    startActivity(intent);
                 }
+                //https://kkh0977.tistory.com/53 특수문자 확인 코드 출처
 
             }
+            //공백 없이 입력받기 소스 참고 - [출처] 안드로이드 EditText의 NULL값 처리|작성자 CoMine, https://devuryu.tistory.com/42
+
+
         });
+
     }
 
-    private void inputUserInfo(String phoneNum) {//(60-70행)DB연동 소스 참고 - https://fjdkslvn.tistory.com/5**
+    private void inputUserPhoneNum(String phoneNum) {//(60-70행)DB연동 소스 참고 - https://fjdkslvn.tistory.com/5**
 
         //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능.
 
-        //inputUserInfo.java에서 선언했던 함수.
-        inputUserInfo inputUserInfo = new inputUserInfo(phoneNum);
+        //inputUserPhoneNum.java에서 선언했던 함수.
+        inputUserPhoneNum inputUserPhoneNum = new inputUserPhoneNum();
 
         //child는 해당 키 위치로 이동하는 함수.
-        ref.child("inputUserInfo").setValue(inputUserInfo);
+        ref.child("inputUserPhoneNum").child(phoneNum).setValue(inputUserPhoneNum);
 
     }
     public String hashing(String str) {//(71-88행)해싱 참고 - https://5stralia.tistory.com/m/18
@@ -121,41 +86,5 @@ public class yeab_app_resfind01 extends AppCompatActivity {
 
         return result;
     }
-
-    private void daezoSunggongDialog() {//대조 성공한 경우
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
-        builder.setTitle("예약번호 확인");
-        builder.setMessage("고객님의 예약번호는 : "+inputUserInfo.phoneNum+"입니다.");
-
-        builder.setNegativeButton("예",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //예 눌렀을때의 이벤트 처리
-                        finish();
-                    }
-                });
-
-        builder.show();
-
-    }
-    private void daezoSilpaeDialog() {//대조 실패한 경우
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
-        builder.setTitle("예약번호 확인");
-        builder.setMessage("대조되는 번호가 없습니다. 메인으로 돌아갑니다.");
-
-        builder.setNegativeButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        Intent intent = new Intent(yeab_app_resfind01.this, yeab_app_main_01.class);
-                        startActivity(intent);
-                    }
-                });
-
-        builder.show();
-
-    }
-    //(104-139행)출처: https://everyshare.tistory.com/4 [에브리셰어:티스토리]*/
 }
+

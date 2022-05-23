@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.silmoo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,28 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Silmoo"
         tools:targetApi="31">
-        <activity
-            android:name=".yeab_app_mapshow"
-            android:exported="false" />
-        //이게 왜 에러가 뜨지..?
-        <activity
-            android:name=".yeab_app_reseve_time"
-            android:exported="false" />
-        <activity
-            android:name=".yeab_app_reserve_02"
-            android:exported="false" />
-        <activity
-            android:name=".yeab_app_reserve_01"
-            android:exported="false" />
-        <activity
-            android:name=".yeab_app_main_01"
-            android:exported="false" />
-        <activity
-            android:name=".yeab_app_main_01"
-            android:exported="false" />
-        <activity
-            android:name=".printoutDB"
-            android:exported="false" />
+        <activity android:name=".yeab_app_resfind01_popup"/>
         <activity
             android:name=".yeab_app_resfind01"
             android:exported="true">
@@ -46,10 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.google.android.geo.AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA"
-            android:value="AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

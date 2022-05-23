@@ -9,7 +9,7 @@
     >
 
     <EditText
-        android:id="@+id/et_000"
+        android:id="@+id/yeab_app_resfind01_et_000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -21,10 +21,10 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/t_000" />
+        app:layout_constraintTop_toBottomOf="@+id/yeab_app_resfind01_t_000" />
 
     <Button
-        android:id="@+id/btn_000"
+        android:id="@+id/yeab_app_resfind01_btn_000"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="확인"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/t_000"
+        android:id="@+id/yeab_app_resfind01_t_000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
