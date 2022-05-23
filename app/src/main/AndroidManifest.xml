@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Silmoo"
         tools:targetApi="31">
-        <activity
-            android:name=".printoutDB"
-            android:exported="false" />
+        <activity android:name=".yeab_app_resfind01_popup"/>
         <activity
             android:name=".yeab_app_resfind01"
             android:exported="true">
