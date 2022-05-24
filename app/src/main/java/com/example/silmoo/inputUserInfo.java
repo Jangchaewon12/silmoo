@@ -1,22 +1,23 @@
 package com.example.silmoo;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.core.Context;
 
-public class inputUserPhoneNum {
+public class inputUserInfo {
 
     private String phoneNum;
 
-    public inputUserPhoneNum(){}
+    public inputUserInfo(){}
 
     public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhoneNum(String setPhoneNum) {
+        this.phoneNum = setPhoneNum;
     }
 
-    inputUserPhoneNum(String phoneNum){
+    inputUserInfo(String phoneNum){
         this.phoneNum = phoneNum;
     }
 
