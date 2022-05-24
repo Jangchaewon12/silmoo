@@ -16,7 +16,6 @@ import java.util.Arrays;
 
 public class yeab_app_resfind01 extends AppCompatActivity {
 
-
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
     private EditText et_000;                    //전화번호 입력필드
