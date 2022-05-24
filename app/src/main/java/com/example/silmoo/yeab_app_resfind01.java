@@ -1,7 +1,9 @@
 package com.example.silmoo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,7 @@ public class yeab_app_resfind01 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.yeab_app_resfind01);
+
 
         yeab_app_resfind01_et_000 = findViewById(R.id.yeab_app_resfind01_et_000);//버튼 아이디 연결
         yeab_app_resfind01_btn_000 = findViewById(R.id.yeab_app_resfind01_btn_000);//'입력' 버튼 연결
@@ -97,5 +100,25 @@ public class yeab_app_resfind01 extends AppCompatActivity {
 
         return result;
     }
+
+    private void deleteDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
+        builder.setTitle("예약번호 확인");
+        builder.setMessage(inputUserInfo.getPhoneNum());
+
+        builder.setNegativeButton("예",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //예 눌렀을때의 이벤트 처리
+                        finish();
+                    }
+                });
+
+        builder.show();
+
+    }
+    //(104-127행)출처: https://everyshare.tistory.com/4 [에브리셰어:티스토리]*/
 }
 
