@@ -1,15 +1,17 @@
 package com.example.silmoo;
 
+import android.content.Context;
+
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.core.Context;
 
 public class inputUserInfo {
 
-    private String phoneNum;
+    private static String phoneNum;
+    //public String phoneNum;
 
     public inputUserInfo(){}
 
-    public String getPhoneNum() {
+    public static String getPhoneNum() {
         return phoneNum;
     }
 
