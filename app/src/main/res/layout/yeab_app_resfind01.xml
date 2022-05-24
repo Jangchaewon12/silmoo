@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".yeab_app_resfind01">
+    tools:context=".yeab_app_resfind01"
+    >
 
     <EditText
         android:id="@+id/et_000"
@@ -41,4 +43,24 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    //StrongCatWill(승연) :: 여기서 데이터 베이스에 저장된 전화번호 대조하고 예약번호 불러오는 로직 써야 함.
+    //팝업 연계가 되는지 확인하기 위해 버튼으로만 만들어두겠음.
+    <Button
+        android:id="@+id/btn_res_find01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="resFind_pop이동"/>
+
+    <Button
+        android:id="@+id/btn_resfind_printpop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/btn_res_find01"
+        android:text="예약번호 출력 팝업(yeab_app_resFind_Printpop)으로 이동"
+        />
+
+
+</RelativeLayout>
