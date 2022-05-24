@@ -1,5 +1,6 @@
 package com.example.silmoo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,13 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class yeab_app_resfind01 extends AppCompatActivity {
 
@@ -52,36 +58,47 @@ public class yeab_app_resfind01 extends AppCompatActivity {
                             Toast.makeText(yeab_app_resfind01.this, "공백, 특수문자는 입력 불가합니다.", Toast.LENGTH_SHORT).show();
                             return;
                         }else {arrayList.add(getEdit.charAt(i));}
+
                     }
 
+                }
                 //배열 값 가져와서 스트링으로 만들기
                 getArrayList = arrayList.toString();
 
                 //배열 스트링 한 값 해싱
                 String hashingPhoneNum = hashing(getArrayList);
-                inputUserInfo(hashingPhoneNum);
+
                 //입력 성공 출력 Toast
                 Toast.makeText(yeab_app_resfind01.this, "입력 성공", Toast.LENGTH_SHORT).show();
-                //화면 전환
-                Intent intent = new Intent(getApplicationContext(), yeab_app_resfind01_popup.class);
-                startActivity(intent);
-                }
 
+                //번호 있는지 대조
+                ref.child("inputUserInfo").child("phoneNum").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String boolPhoneNum = snapshot.getValue(String.class);
+
+                        if(boolPhoneNum==hashingPhoneNum){
+                            daezoSuccess();
+                        }
+                        else{
+                            daezoFail();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
             }
         });
     }
 
-    private void inputUserInfo(String phoneNum) {//(60-70행)DB연동 소스 참고 - https://fjdkslvn.tistory.com/5**
 
-        //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능.
 
-        //inputUserInfo.java에서 선언했던 함수.
-        inputUserInfo inputUserInfo = new inputUserInfo(phoneNum);
 
-        //child는 해당 키 위치로 이동하는 함수.
-        ref.child("inputUserInfo").setValue(inputUserInfo);
-
-    }
+    //(104-139행)Dialog 출처: https://everyshare.tistory.com/4 [에브리셰어:티스토리]*/
     public String hashing(String str) {//(71-88행)해싱 참고 - https://5stralia.tistory.com/m/18
         String result;
         try {
@@ -101,11 +118,11 @@ public class yeab_app_resfind01 extends AppCompatActivity {
         return result;
     }
 
-    private void deleteDialog() {
+    public void daezoSuccess(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
         builder.setTitle("예약번호 확인");
-        builder.setMessage(inputUserInfo.getPhoneNum());
+        builder.setMessage("고객님의 예약번호는 : "+"에야ㄱ번호"+"입니다.");
 
         builder.setNegativeButton("예",
                 new DialogInterface.OnClickListener() {
@@ -117,8 +134,24 @@ public class yeab_app_resfind01 extends AppCompatActivity {
                 });
 
         builder.show();
-
     }
-    //(104-127행)출처: https://everyshare.tistory.com/4 [에브리셰어:티스토리]*/
+    public void daezoFail(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
+        builder.setTitle("예약번호 확인 불가능");
+        builder.setMessage("고객님의 예약번호는 존재하지 않습니다. 앱을 종료합니다.");
+
+        builder.setNegativeButton("예",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //예 눌렀을때의 이벤트 처리
+                        finish();
+                    }
+                });
+
+        builder.show();
+    }
+
 }
 

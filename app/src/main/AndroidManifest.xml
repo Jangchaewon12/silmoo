@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Silmoo"
         tools:targetApi="31">
-        <activity android:name=".yeab_app_resfind01_popup"/>//바꾼 것
+
         <activity
             android:name=".yeab_app_resfind01"
             android:exported="true">
-            <intent-filter>//바꾼 것
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +25,6 @@
         </activity>
     </application>
 
-    //바꾼 것
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

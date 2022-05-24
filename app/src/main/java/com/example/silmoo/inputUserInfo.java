@@ -1,26 +1,28 @@
 package com.example.silmoo;
 
-import android.content.Context;
+import com.google.firebase.database.Exclude;
 
-import com.google.firebase.database.DatabaseReference;
+import java.util.HashMap;
+import java.util.Map;
 
 public class inputUserInfo {
 
-    private static String phoneNum;
-    //public String phoneNum;
-
+    public String phoneNum;
     public inputUserInfo(){}
-
-    public static String getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
-
     public void setPhoneNum(String setPhoneNum) {
         this.phoneNum = setPhoneNum;
     }
-
-    inputUserInfo(String phoneNum){
+    public inputUserInfo(String phoneNum){
         this.phoneNum = phoneNum;
     }
 
+    @Exclude
+    public Map<String, Object> phoneNumToMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("phoneNum", phoneNum);
+        return result;
+    }
 }
