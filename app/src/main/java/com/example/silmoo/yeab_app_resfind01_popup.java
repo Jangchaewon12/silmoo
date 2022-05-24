@@ -30,7 +30,6 @@ public class yeab_app_resfind01_popup extends AppCompatActivity {//(전체 행)�
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 String phoneNum = value;
-
             }
 
             @Override
