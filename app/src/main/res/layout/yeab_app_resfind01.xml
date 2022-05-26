@@ -53,14 +53,7 @@
         android:layout_marginTop="500dp"
         android:text="resFind_pop이동"/>
 
-    <Button
-        android:id="@+id/btn_resfind_printpop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_below="@+id/btn_res_find01"
-        android:text="예약번호 출력 팝업(yeab_app_resFind_Printpop)으로 이동"
-        />
+
 
 
 </RelativeLayout>
