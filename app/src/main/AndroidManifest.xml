@@ -18,6 +18,7 @@
         <activity
             android:name=".yeab_app_mapshow"
             android:exported="false" />
+        //이게 왜 에러가 뜨지..?
         <activity
             android:name=".yeab_app_reseve_time"
             android:exported="false" />
@@ -28,7 +29,7 @@
             android:name=".yeab_app_reserve_01"
             android:exported="false" />
         <activity
-            android:name=".yeab_app_main_"
+            android:name=".yeab_app_main_01"
             android:exported="false" />
         <activity
             android:name=".yeab_app_main_01"
