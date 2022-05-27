@@ -71,26 +71,7 @@ public class yeab_app_resfind01 extends AppCompatActivity {
                 //입력 성공 출력 Toast
                 Toast.makeText(yeab_app_resfind01.this, "입력 성공", Toast.LENGTH_SHORT).show();
 
-                //번호 있는지 대조
-                ref.child("inputUserInfo").child("phoneNum").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String boolPhoneNum = snapshot.getValue(String.class);
-
-                        if(boolPhoneNum==hashingPhoneNum){
-                            daezoSuccess();
-                        }
-                        else{
-                            daezoFail();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-
-                });
+                boolPhoneNum(hashingPhoneNum);
             }
         });
     }
@@ -139,7 +120,7 @@ public class yeab_app_resfind01 extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //(106행)출처: https://saeatechnote.tistory.com/entry/android안드로이드-Dialog-button-버튼-눌러-다이얼로그-띄우기 [새아의 테크노트:티스토리]
         builder.setTitle("예약번호 확인 불가능");
-        builder.setMessage("고객님의 예약번호는 존재하지 않습니다. 앱을 종료합니다.");
+        builder.setMessage("고객님의 예약번호는 존재하지 않습니다. \n 앱을 종료합니다.");
 
         builder.setNegativeButton("예",
                 new DialogInterface.OnClickListener() {
@@ -153,5 +134,27 @@ public class yeab_app_resfind01 extends AppCompatActivity {
         builder.show();
     }
 
+    public void boolPhoneNum(String hashingPhoneNum){
+        //번호 있는지 대조
+        ref./*child("inputUserInfo").*/child("phoneNum").child("phoneNum").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String boolPhoneNum = snapshot.getValue(String.class);
+
+                if(boolPhoneNum.equals(hashingPhoneNum)){
+                    daezoSuccess();
+                }
+                else{
+                    daezoFail();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+    }
 }
 
