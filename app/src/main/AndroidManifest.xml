@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Silmoo"
         tools:targetApi="31">
         <activity
+            android:name=".yeab_app_mapshow"
+            android:exported="false" />
+        <activity
+            android:name=".yeab_app_reseve_time"
+            android:exported="false" />
+        <activity
             android:name=".yeab_app_reserve_02"
             android:exported="false" />
         <activity
@@ -39,6 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA"
+            android:value="AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA" />
     </application>
 
 </manifest>
