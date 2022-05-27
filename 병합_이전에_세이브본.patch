@@ -1,0 +1,248 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/.idea/misc.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -12,8 +12,8 @@
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/drawable/backgroundforpopup.xml" value="0.1" />
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/drawable/src.xml" value="0.1" />
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main.xml" value="0.36614583333333334" />
+-        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main01.xml" value="0.36614583333333334" />
+-        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_mapshow.xml" value="0.17299898682877407" />
++        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main01.xml" value="0.1" />
++        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_mapshow.xml" value="0.25" />
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve01.xml" value="0.36614583333333334" />
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve02.xml" value="0.3515625" />
+         <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reseve_time.xml" value="0.36614583333333334" />
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/app/src/main/AndroidManifest.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -18,6 +18,7 @@
+         <activity
+             android:name=".yeab_app_mapshow"
+             android:exported="false" />
++        //이게 왜 에러가 뜨지..?
+         <activity
+             android:name=".yeab_app_reseve_time"
+             android:exported="false" />
+@@ -28,7 +29,7 @@
+             android:name=".yeab_app_reserve_01"
+             android:exported="false" />
+         <activity
+-            android:name=".yeab_app_main_"
++            android:name=".yeab_app_main_01"
+             android:exported="false" />
+         <activity
+             android:name=".yeab_app_main_01"
+Index: app/src/main/java/com/example/silmoo/yeab_app_main_01.java
+===================================================================
+diff --git a/app/src/main/java/com/example/silmoo/yeab_app_main_01.java b/app/src/main/java/com/example/silmoo/yeab_app_main_01.java
+--- a/app/src/main/java/com/example/silmoo/yeab_app_main_01.java	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/app/src/main/java/com/example/silmoo/yeab_app_main_01.java	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -9,6 +9,7 @@
+ public class yeab_app_main_01 extends AppCompatActivity {
+ 
+     Button btn_reservation;
++    Button btn_showmap;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -23,6 +24,15 @@
+                 startActivity(intent);
+             }
+         });
++
++        btn_showmap = findViewById(R.id.btn_showmap);
++        btn_showmap.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                Intent intent = new Intent(yeab_app_main_01.this, yeab_app_mapshow.class);
++                startActivity(intent);
++            }
++        });
+ 
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/silmoo/yeab_app_mapshow.java
+===================================================================
+diff --git a/app/src/main/java/com/example/silmoo/yeab_app_mapshow.java b/app/src/main/java/com/example/silmoo/yeab_app_mapshow.java
+--- a/app/src/main/java/com/example/silmoo/yeab_app_mapshow.java	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/app/src/main/java/com/example/silmoo/yeab_app_mapshow.java	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -1,15 +1,40 @@
+ package com.example.silmoo;
+ 
++import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import com.google.android.gms.maps.GoogleMap;
+-import com.google.android.gms.maps.model.Marker;
++import com.google.android.gms.maps.OnMapReadyCallback;
++import com.google.android.gms.maps.SupportMapFragment;
++import com.google.android.gms.maps.model.LatLng;
++import com.google.android.gms.maps.model.MarkerOptions;
+ 
+-public class yeab_app_mapshow extends AppCompatActivity {
++public class yeab_app_mapshow extends AppCompatActivity
++                                implements OnMapReadyCallback {
++
++    private GoogleMap gMap;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_yeab_app_mapshow);
++
++        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.yeab_app_mapshow);
++        mapFragment.getMapAsync(this);
++    }
++
++    @Override
++    public void onMapReady(@NonNull GoogleMap googleMap) {
++        gMap = googleMap;
++
++        //위도 경도 설정해주기, 처음 보여질 화면임.
++        LatLng School = new LatLng(37.578039079396376, 126.96761698264326 );
++
++        MarkerOptions markerOptions = new MarkerOptions();
++        markerOptions.position(School);
++        markerOptions.title("배화여자대학교");
++        markerOptions.snippet("학교 주변 1KM 식당가 조회");
++        gMap.addMarker(markerOptions);
++
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/backgroundforpopup.xml
+===================================================================
+diff --git a/app/src/main/res/drawable/backgroundforpopup.xml b/app/src/main/res/drawable/backgroundforpopup.xml
+new file mode 100644
+--- /dev/null	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
++++ b/app/src/main/res/drawable/backgroundforpopup.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape
++    xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <stroke
++    android:width="5dp"
++    android:color="@color/cardview_shadow_end_color"
++    />
++
++    <padding
++        android:left="1dp"
++        android:top="14dp"
++        android:right="14dp"
++        android:bottom="14dp"
++        />
++
++    <corners
++        android:bottomRightRadius="7dp"
++        android:bottomLeftRadius="7dp"
++        android:topRightRadius="7dp"
++        android:topLeftRadius="7dp"
++        />
++
++
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_yeab_app_main01.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_yeab_app_main01.xml b/app/src/main/res/layout/activity_yeab_app_main01.xml
+--- a/app/src/main/res/layout/activity_yeab_app_main01.xml	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/app/src/main/res/layout/activity_yeab_app_main01.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -24,6 +24,15 @@
+         android:textSize="25dp"
+         android:backgroundTint="#3F51B5"/>
+ 
++    <Button
++        android:id="@+id/btn_showmap"
++        android:layout_width="270dp"
++        android:layout_height="78dp"
++        android:layout_marginTop="20dp"
++        android:text="학교 주변 식당 보기"
++        android:textSize="25dp"
++        android:backgroundTint="#3F51B5"/>
++
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+Index: app/src/main/res/layout/activity_yeab_app_mapshow.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_yeab_app_mapshow.xml b/app/src/main/res/layout/activity_yeab_app_mapshow.xml
+--- a/app/src/main/res/layout/activity_yeab_app_mapshow.xml	(revision e0386f574422989d5dbabccbf1a528f6a56f4229)
++++ b/app/src/main/res/layout/activity_yeab_app_mapshow.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -1,17 +1,17 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
++<LinearLayout
++
++    xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".yeab_app_mapshow">
+ 
+-    <fragment
++    <androidx.fragment.app.FragmentContainerView
+         android:id="@+id/yeab_app_mapshow"
++        android:name="com.google.android.gms.maps.SupportMapFragment"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+-        android:tools.context=".MapsActivity"
+-        android:name="com.google.android.gms.maps.SupportMapFragment"
+-        />
++        android:tools.context=".MapsActivity" />
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/yeab_app_resfind_pop.xml
+===================================================================
+diff --git a/app/src/main/res/layout/yeab_app_resfind_pop.xml b/app/src/main/res/layout/yeab_app_resfind_pop.xml
+new file mode 100644
+--- /dev/null	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
++++ b/app/src/main/res/layout/yeab_app_resfind_pop.xml	(revision 90b82406b4cc1fc6251de0a296fbe04693ef7244)
+@@ -0,0 +1,31 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="350dp"
++    android:layout_height="170dp"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_gravity="center"
++    android:background="@drawable/src"
++    >
++
++    <TextView
++        android:id="@+id/t_resfind01"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="예약 정보가 없습니다. \n처음 화면으로 돌아갑니다."
++        android:textAlignment="center"
++        android:layout_marginTop="20dp"
++        android:textSize="20dp"
++        android:layout_centerHorizontal="true"
++        />
++
++    <Button
++        android:id="@+id/btn_resFind01_pop"
++        android:layout_width="100dp"
++        android:layout_height="50dp"
++        android:layout_centerHorizontal="true"
++        android:text="확인"
++        android:layout_marginTop="25dp"
++        android:layout_below="@+id/t_resfind01"/>
++
++</RelativeLayout>
+\ No newline at end of file
