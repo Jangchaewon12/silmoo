@@ -110,7 +110,7 @@ public class yeab_app_resfind01 extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //예 눌렀을때의 이벤트 처리
-                        finish();
+                        //Intent intent = new Intent(getApplicationContext().yeab_app_main_01.class);
                     }
                 });
 
@@ -158,3 +158,4 @@ public class yeab_app_resfind01 extends AppCompatActivity {
     }
 }
 
+//------yeab_app_reserve_02-------JCW(장채원)이 씀

@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/drawable/backgroundforpopup.xml" value="0.1235" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/drawable/src.xml" value="0.113" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_printout_db.xml" value="0.2390625" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main01.xml" value="0.1125" />
+        <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_mapshow.xml" value="0.1" />
+        <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve01.xml" value="0.1125" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_resfind01.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_resfind01_popup.xml" value="0.2" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_resfind02.xml" value="0.25364583333333335" />

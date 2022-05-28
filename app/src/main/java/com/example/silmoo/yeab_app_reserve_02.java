@@ -30,8 +30,8 @@ public class yeab_app_reserve_02 extends AppCompatActivity {
         Ibtn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(yeab_app_reserve_02.this, yeab_app_reserve_time.class);
-                startActivity(intent);
+                //Intent intent = new Intent(yeab_app_reserve_02.this, yeab_app_reserve_time.class);
+                //startActivity(intent);
             }
         });
 
