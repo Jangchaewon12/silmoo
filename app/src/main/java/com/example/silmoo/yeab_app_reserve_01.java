@@ -1,10 +1,11 @@
-package com.example.silmoo;
+package com.chobo.yeab_swproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 
 public class yeab_app_reserve_01 extends AppCompatActivity {
@@ -30,8 +31,8 @@ public class yeab_app_reserve_01 extends AppCompatActivity {
         Ibtn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(yeab_app_reserve_01.this, yeab_app_reserve_02.class);
-                startActivity(intent);
+                    Intent intent = new Intent(yeab_app_reserve_01.this, yeab_app_reserve_02.class);
+                    startActivity(intent);
             }
         });
 
