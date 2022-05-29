@@ -1,4 +1,4 @@
-package com.chobo.yeab_swproject;
+package com.example.silmoo;
 
 import androidx.appcompat.app.AppCompatActivity;
 

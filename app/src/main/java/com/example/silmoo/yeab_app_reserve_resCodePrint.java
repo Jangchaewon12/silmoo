@@ -1,4 +1,4 @@
-package com.chobo.yeab_swproject;
+package com.example.silmoo;
 
 import android.content.Intent;
 import android.os.Bundle;
