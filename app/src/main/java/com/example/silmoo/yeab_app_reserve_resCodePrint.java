@@ -6,9 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
+
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
     Intent intent;
     Button btn_quit;
@@ -22,6 +27,7 @@ public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
         String rt_time_A = intent.getStringExtra("code_rt_time_A");
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
         t_resCodeTimeA.setText(rt_time_A);
+
 
         intent = getIntent();
         String rt_time_B = intent.getStringExtra("code_rt_time_B");
@@ -183,20 +189,24 @@ public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
         TextView t_printSeat_page1_31 = findViewById(R.id.t_printSeat_page1_31);
         t_printSeat_page1_31.setText(seat_page1_31);
 
+
         intent = getIntent();
         String seat_page1_51 = intent.getStringExtra("code_seat_page1_51");
         TextView t_printSeat_page1_51 = findViewById(R.id.t_printSeat_page1_51);
         t_printSeat_page1_51.setText(seat_page1_51);
+
 
         intent = getIntent();
         String seat_page1_71 = intent.getStringExtra("code_seat_page1_71");
         TextView t_printSeat_page1_71 = findViewById(R.id.t_printSeat_page1_71);
         t_printSeat_page1_71.setText(seat_page1_71);
 
+
         intent = getIntent();
         String seat_page2_1 = intent.getStringExtra("code_seat_page2_1");
         TextView t_printSeat_page2_1 = findViewById(R.id.t_printSeat_page2_1);
         t_printSeat_page2_1.setText(seat_page2_1);
+
 
         btn_quit = findViewById(R.id.btn_quit);
         btn_quit.setOnClickListener(new View.OnClickListener() {
@@ -205,6 +215,7 @@ public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
                 finish();
                 Intent intent = new Intent(yeab_app_reserve_resCodePrint.this, yeab_app_main_01.class);
                 startActivity(intent);
+
             }
         });
 

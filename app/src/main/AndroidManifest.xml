@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.silmoo">
+    package="com.example.silmoo"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -13,33 +13,49 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Silmoo"
         tools:targetApi="31">
-
         <activity
-            android:name=".yeab_app_resfind01" android:exported="true">
-        </activity>
+            android:name=".yeab_app_resfind01"
+            android:exported="true"></activity>
         <activity
-            android:name=".yeab_app_main_01"  android:exported="true">
+            android:name=".yeab_app_main_01"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".yeab_app_mapshow"  android:exported="true">
+        <activity
+            android:name=".yeab_app_mapshow"
+            android:exported="true"></activity>
+        <activity
+            android:name=".yeab_app_reserve_02"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_01"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_person"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_seat_page1"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_seat_page2"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_seat_page3"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_time"
+            android:exported="true" />
+        <activity
+            android:name=".yeab_app_reserve_resCodePrint"
+            android:exported="true" />
 
-        </activity>
-        <activity android:name=".yeab_app_reserve_02"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_01"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_person"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_seat_page1"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_seat_page2"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_seat_page3"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_time"  android:exported="true"></activity>
-        <activity android:name=".yeab_app_reserve_resCodePrint"  android:exported="true"></activity>
         <meta-data
             android:name="com.google.android.geo.AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA"
-            android:value="AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA"
-            />
+            android:value="AIzaSyBfijhEVMHTfch23xGmS86zl9C9dPffGAA" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

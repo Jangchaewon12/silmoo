@@ -9,7 +9,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
+    DatabaseReference ref = database.getReference();
 
     Intent intent;
     Button btn_seat1, btn_seat2, btn_seat3, btn_seat4;
@@ -203,11 +209,12 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
 
         btn_seat1 = findViewById(R.id.btn_seat1);
         btn_seat1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
-
                 intent.putExtra("code_seat_page1_1", "1");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("1");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -244,7 +251,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_2", "2");
-
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("2");//해당 줄 JCW(장채원) 작성
                 {
                     if(rt_time_A != null){
                         intent.putExtra("code_rt_time_A", "A");
@@ -280,6 +287,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_3", "3");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("3");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -316,6 +324,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_4", "4");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("4");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -352,6 +361,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_26", "26");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("26");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -388,6 +398,8 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_46", "46");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("46");//해당 줄 JCW(장채원) 작성
+
 
                 {
                     if(rt_time_A != null){
@@ -424,6 +436,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_66", "66");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("66");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -460,6 +473,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_86", "86");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("86");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -496,6 +510,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_15", "15");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("15");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -532,6 +547,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_35", "35");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("35");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -568,6 +584,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_55", "55");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("55");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -604,6 +621,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_75", "75");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("75");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -640,6 +658,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_24", "24");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("24");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -676,6 +695,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_44", "44");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("44");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -712,6 +732,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_64", "64");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("64");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -748,6 +769,8 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_84", "84");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("84");//해당 줄 JCW(장채원) 작성
+
 
                 {
                     if(rt_time_A != null){
@@ -784,6 +807,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_13", "13");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("13");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -820,6 +844,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_33", "33");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("33");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -856,6 +881,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_53", "53");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("53");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -892,6 +918,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_73", "73");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("73");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -928,6 +955,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_22", "22");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("22");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -964,6 +992,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_42", "42");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("42");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1000,6 +1029,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_62", "62");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("62");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1036,6 +1066,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_82", "82");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("82");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1072,6 +1103,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_11", "11");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue("11");//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1108,6 +1140,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_31", "31");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue(31);//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1144,6 +1177,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_51", "51");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue(51);//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){
@@ -1180,6 +1214,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_seat_page1.this, yeab_app_reserve_resCodePrint.class);
                 intent.putExtra("code_seat_page1_71", "71");
+                ref.child("inputUserInfo").child("inputUserSelectSeat").setValue(71);//해당 줄 JCW(장채원) 작성
 
                 {
                     if(rt_time_A != null){

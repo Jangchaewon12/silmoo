@@ -9,15 +9,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class yeab_app_reserve_02 extends AppCompatActivity {
+public class yeab_app_reserve_02 extends AppCompatActivity{
 
     EditText et_phoneNumber;
     ImageButton Ibtn_before;
     ImageButton Ibtn_next;
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
+    DatabaseReference ref = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +32,9 @@ public class yeab_app_reserve_02 extends AppCompatActivity {
 
 
         et_phoneNumber = findViewById(R.id.et_phoneNumber);
-
         Ibtn_next = findViewById(R.id.Ibtn_next);
         Ibtn_next.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
@@ -38,29 +44,29 @@ public class yeab_app_reserve_02 extends AppCompatActivity {
                 String getArrayList;
                 ArrayList<Character> arrayList = new ArrayList<>();
 
-                boolean x;
                 int i;
                 if ((getEdit.getBytes().length < 11 || getEdit.getBytes().length > 11)) {
                     Toast.makeText(yeab_app_reserve_02.this, "숫자로만 11자리 입력해야 합니다.", Toast.LENGTH_SHORT).show();
-                    x=false;
                     return;}
-                if(x=true) {
+                else{
                     for (i = 0; i < getEdit.length(); i++) {
                         if (String.valueOf(getEdit.charAt(i)).matches("[^a-zA-Z0-9\\s]")) { //특수문자 아닌 경우 배열에 저장
                             Toast.makeText(yeab_app_reserve_02.this, "공백, 특수문자는 입력 불가합니다.", Toast.LENGTH_SHORT).show();
                             return;
                         } else {
+                            arrayList.add(getEdit.charAt(i));
                             //배열 값 가져와서 스트링으로 만들기
                             getArrayList = arrayList.toString();
-                            //배열 스트링 한 값 해싱
-                            String hashingPhoneNum = hashing(getArrayList);
-                            //inputUserInfo(hashingPhoneNum);
-                            //입력 성공 출력 Toast
-                            Toast.makeText(yeab_app_reserve_02.this, "입력 성공", Toast.LENGTH_SHORT).show();
-                            arrayList.add(getEdit.charAt(i));
-                            Intent intent = new Intent(yeab_app_reserve_02.this, yeab_app_reserve_time.class);
-                            startActivity(intent);
+                            //배열 스트링 한 값 해싱 후 DB에 저장
+                            addInputUserInfo(getArrayList);
+
+
                         }
+                        //입력 성공 출력 Toast
+                        Toast.makeText(yeab_app_reserve_02.this, "입력 성공", Toast.LENGTH_SHORT).show();
+                        //화면 전환
+                        Intent intent = new Intent(yeab_app_reserve_02.this, yeab_app_reserve_time.class);
+                        startActivity(intent);
                     }
                 }
 
@@ -99,4 +105,10 @@ public class yeab_app_reserve_02 extends AppCompatActivity {
 
         return result;
     }
+    private void addInputUserInfo(String phoneNum) {
+        //inputUserInfo.java에서 선언했던 함수.
+        inputUserInfo inputUserPhoneNum = new inputUserInfo(hashing(phoneNum));
+        ref.child("inputUserInfo").child("inputUserPhoneNum").setValue(inputUserPhoneNum);
+    }
 }
+//--------yeab_app_reserve_02는 xml 민예인, java 장채원이 씀.-------

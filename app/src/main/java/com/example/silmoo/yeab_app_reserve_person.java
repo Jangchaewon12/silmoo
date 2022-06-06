@@ -9,10 +9,16 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class yeab_app_reserve_person extends AppCompatActivity {
 
     Intent intent;
     Button btn_1person, btn_2person, btn_3person;
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
+    DatabaseReference ref = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +50,8 @@ public class yeab_app_reserve_person extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(yeab_app_reserve_person.this, yeab_app_reserve_seat_page1.class);
-
                 intent.putExtra("code_person1", "1");
+                ref.child("inputUserInfo").child("inputUserSelectPerson").setValue("1");;//해당 줄 장채원 작성(DB관련)
 
                 if(rt_time_A != null){
                     intent.putExtra("code_rt_time_A", "A");
@@ -71,6 +77,7 @@ public class yeab_app_reserve_person extends AppCompatActivity {
                 intent = new Intent(yeab_app_reserve_person.this, yeab_app_reserve_seat_page2.class);
 
                 intent.putExtra("code_person2", "2");
+                ref.child("inputUserInfo").child("inputUserSelectPerson").setValue("2");;//해당 줄 장채원 작성(DB관련)
 
                 if(rt_time_A != null){
                     intent.putExtra("code_rt_time_A", "A");
@@ -96,6 +103,7 @@ public class yeab_app_reserve_person extends AppCompatActivity {
                 intent = new Intent(yeab_app_reserve_person.this, yeab_app_reserve_seat_page3.class);
 
                 intent.putExtra("code_person3", "3");
+                ref.child("inputUserInfo").child("inputUserSelectPerson").setValue("3");;//해당 줄 장채원 작성(DB관련)
 
                 if(rt_time_A != null){
                     intent.putExtra("code_rt_time_A", "A");
