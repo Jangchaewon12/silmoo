@@ -101,16 +101,14 @@ public class yeab_app_resfind01 extends AppCompatActivity{
     }
 
     public void boolPhoneNum(String hashingPhoneNum) {
-        //같은 번호가 있는지 대조
+        //db에 같은 번호가 있는지 대조 -> 있으면 예약번호 출력 / 없으면 메인으로 강제 이동.
         ref.child("inputUserInfo").child("inputUserPhoneNum").child("phoneNum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 String boolPhoneNum = datasnapshot.getValue(String.class);
 
                 if (boolPhoneNum.equals(hashingPhoneNum)) {
-
                     daezoSuccess();
-
                 } else {
                     daezoFail();
                 }
@@ -130,7 +128,7 @@ public class yeab_app_resfind01 extends AppCompatActivity{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("예약번호 확인 성공");
 
-        //@JCW 7일 넘게 고생한 부분(137~158행) : 계속 NULL값 나와서 고생했습니다.
+        //@JCW 7일 넘게 고생한 부분(137~158행) : 계속 NULL값 나와서 고생했습니다. : 알아낸 것 -> 비동기식 작동법이기 때문에 외부에서 불러오면 NULL 값 나옴=인터페이스를 사용하거나, 내부에서 진행해야 함.
         readTimeData(new SimpleCallback() {
             @Override
             public void onCallback(String value) {
@@ -146,7 +144,21 @@ public class yeab_app_resfind01 extends AppCompatActivity{
                             public void onCallback(String value) {
                                 Log.d("readSeat1Data", value);
                                 String readSeat1Data = value;
-                                builder.setMessage(readTimeData+readPersonData+readSeat1Data).show();
+                                readSeat2Data(new SimpleCallback() {
+                                    @Override
+                                    public void onCallback(String value) {
+                                        Log.d("readSeat2Data", value);
+                                        String readSeat2Data = value;
+                                        readSeat3Data(new SimpleCallback() {
+                                            @Override
+                                            public void onCallback(String value) {
+                                                Log.d("readSeat3Data", value);
+                                                String readSeat3Data = value;
+                                                builder.setMessage(readTimeData+readPersonData+readSeat1Data+readSeat2Data+readSeat3Data).show();
+                                            }
+                                        });
+                                    }
+                                });
                             }
                         });
                     }
@@ -223,7 +235,30 @@ public class yeab_app_resfind01 extends AppCompatActivity{
 
         });
     }
+    public void readSeat2Data(SimpleCallback myCallback) {
+        ref.child(String.format("inputUserInfo/inputUserSelectSeat2")).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                myCallback.onCallback(value);
+            }
+            @Override
+            public void onCancelled (DatabaseError databaseError){}
 
+        });
+    }
+    public void readSeat3Data(SimpleCallback myCallback) {
+        ref.child(String.format("inputUserInfo/inputUserSelectSeat3")).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                myCallback.onCallback(value);
+            }
+            @Override
+            public void onCancelled (DatabaseError databaseError){}
+
+        });
+    }
 }
 
 //------yeab_app_resfind01 전체------JCW(장채원)이 씀

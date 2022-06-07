@@ -227,6 +227,7 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
                 intent = new Intent(yeab_app_reserve_seat_page2.this, yeab_app_reserve_seat_page1.class);
 
                 intent.putExtra("code_seat_page2_1", "1");
+                ref.child("inputUserInfo").child("inputUserSelectSeat2").setValue("1");//해당 줄 JCW(장채원) 작성
                 /*예약 코드 출력을 위해 '1' 값 전달*/
 
                 {
