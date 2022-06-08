@@ -51,6 +51,7 @@ public class yeab_app_reserve_time extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(yeab_app_reserve_time.this, yeab_app_reserve_person.class);
                 intent.putExtra("code_rt_time_B", "B");
+                ref.child("inputUserInfo").child("inputUserSelectTime").setValue(StringB);//해당 줄 장채원 작성(DB관련)
                 startActivity(intent);
             }
         });

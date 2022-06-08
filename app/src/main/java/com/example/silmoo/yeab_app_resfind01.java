@@ -128,7 +128,7 @@ public class yeab_app_resfind01 extends AppCompatActivity{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("예약번호 확인 성공");
 
-        //@JCW 7일 넘게 고생한 부분(137~158행) : 계속 NULL값 나와서 고생했습니다. : 알아낸 것 -> 비동기식 작동법이기 때문에 외부에서 불러오면 NULL 값 나옴=인터페이스를 사용하거나, 내부에서 진행해야 함.
+        //@JCW 7일 넘게 고생한 부분(137~158행) : 계속 NULL값 나와서 고생했습니다. : 알아낸 것 -> 비동기식 작동법이기 때문에 외부에서 불러오면 NULL 값 나옴=인터페이스를 사용하거나, 내부에서 진행해야 함. --4차발표 때 하기로 했던 부분 완수.
         readTimeData(new SimpleCallback() {
             @Override
             public void onCallback(String value) {
@@ -154,7 +154,8 @@ public class yeab_app_resfind01 extends AppCompatActivity{
                                             public void onCallback(String value) {
                                                 Log.d("readSeat3Data", value);
                                                 String readSeat3Data = value;
-                                                builder.setMessage(readTimeData+readPersonData+readSeat1Data+readSeat2Data+readSeat3Data).show();
+                                                String code = readTimeData+readPersonData+readSeat1Data+readSeat2Data+readSeat3Data;
+                                                builder.setMessage(code).show();
                                             }
                                         });
                                     }
