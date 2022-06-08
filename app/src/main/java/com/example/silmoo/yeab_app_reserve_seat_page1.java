@@ -12,10 +12,15 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
+public class yeab_app_reserve_seat_page1 extends AppCompatActivity implements View.OnClickListener {
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
     DatabaseReference ref = database.getReference(); // (DB관련 JCW가 작성.)
+
+    @Override
+    public void onClick(View v) {
+
+    }
 
     // 처음부터 끝까지 '민예인' 작성
 
@@ -30,6 +35,8 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
     Button btn_seat11, btn_seat31, btn_seat51, btn_seat71;
     ImageButton Ibtn_before;
 
+    String time = "" ;
+    String person = "" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +44,8 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
 
         /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         intent = getIntent();
-        String rt_time_A = intent.getStringExtra("code_rt_time_A");
+        time = intent.getStringExtra("code_rt_time_A");
+        person = intent.getStringExtra("person");
         /*코드를 사용해 'A' 값을 전달받고 그 값을 String rt_time_A에 저장*/
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
         t_resCodeTimeA.setText(rt_time_A);
@@ -364,6 +372,7 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
 
         /*1번 좌석을 누르면 yeab_app_reserve_resCodePrint으로 넘어감)*/
         btn_seat1 = findViewById(R.id.btn_seat1);
+        btn_seat1.setOnClickListener(this);
         btn_seat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1984,6 +1993,8 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
                         intent.putExtra("code_seat_page2_4", "4");
                     } else if (seat_page2_26 != null){
                         intent.putExtra("code_seat_page2_26", "26");
+                        intent.putExtra("person", person);
+                        intent.putExtra("time", time);
                     } else if (seat_page2_46 != null){
                         intent.putExtra("code_seat_page2_46", "46");
                     } else if (seat_page2_66 != null){

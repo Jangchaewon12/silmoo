@@ -8,13 +8,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
+public class yeab_app_reserve_resCodePrint extends AppCompatActivity implements  View.OnClickListener {
 
     // 처음부터 끝까지 '민예인' 작성
 
     /*변수 선언*/
     Intent intent;
     Button btn_quit;
+
+    String time = "" ;
+
+    @Override
+    public void onClick(View v) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +30,11 @@ public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
 
         /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         intent = getIntent();
-        String rt_time_A = intent.getStringExtra("code_rt_time_A");
+        time = intent.getStringExtra("code_rt_time_A");
         /*코드를 사용해 'A' 값을 전달받고 그 값을 String rt_time_A에 저장*/
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
         t_resCodeTimeA.setText(rt_time_A);
+
         /*A타임이 출력될 텍스트뷰 자리 t_resCodeTimeA에 'A' 값을 저장한 rt_time_A을 출력*/
 
         intent = getIntent();
@@ -34,10 +42,8 @@ public class yeab_app_reserve_resCodePrint extends AppCompatActivity {
         TextView t_resCodeTimeB = findViewById(R.id.t_resCodeTimeB);
         t_resCodeTimeB.setText(rt_time_B);
 
-        intent = getIntent();
         String rt_time_C = intent.getStringExtra("code_rt_time_C");
-        TextView t_resCodeTimeC = findViewById(R.id.t_resCodeTimeC);
-        t_resCodeTimeC.setText(rt_time_C);
+        t_resCodeTimeB.setText(rt_time_C);
 
         intent = getIntent();
         String rt_time_D = intent.getStringExtra("code_rt_time_D");
