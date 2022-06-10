@@ -36,17 +36,14 @@ public class yeab_app_reserve_person extends AppCompatActivity {
         t_resCodeTimeA.setText(rt_time_A);
         /*A타임이 출력될 텍스트뷰 자리 t_resCodeTimeA에 'A' 값을 저장한 rt_time_A을 출력*/
 
-        intent = getIntent();
         String rt_time_B = intent.getStringExtra("code_rt_time_B");
         TextView t_resCodeTimeB = findViewById(R.id.t_resCodeTimeB);
         t_resCodeTimeB.setText(rt_time_B);
 
-        intent = getIntent();
         String rt_time_C = intent.getStringExtra("code_rt_time_C");
         TextView t_resCodeTimeC = findViewById(R.id.t_resCodeTimeC);
         t_resCodeTimeC.setText(rt_time_C);
 
-        intent = getIntent();
         String rt_time_D = intent.getStringExtra("code_rt_time_D");
         TextView t_resCodeTimeD = findViewById(R.id.t_resCodeTimeD);
         t_resCodeTimeD.setText(rt_time_D);
