@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".yeab_app_mapshow">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/yeab_app_mapshow"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <ImageButton
+        android:id="@+id/btn_mapshow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:src="@drawable/baewha_around"
+        />
+
 
 </LinearLayout>
