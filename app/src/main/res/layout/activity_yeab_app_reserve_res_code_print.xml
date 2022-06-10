@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".yeab_app_reserve_resCodePrint">
 
+    <!--처음부터 끝까지 '민예인' 작성-->
+
+    <!--큰 텍스트 출력-->
     <TextView
         android:id="@+id/t_phoneNumWrite"
         android:layout_width="wrap_content"
@@ -17,10 +19,12 @@
         android:textColorHint="@color/black"
         android:textSize="30dp"/>
 
+    <!--중첩 리니어 레이아웃을 사용해 한 줄에 표시될 수 있게끔 구현-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--선택한 시간대가 출력될 자리-->
         <TextView
             android:id="@+id/t_resCodeTimeA"
             android:layout_width="18dp"
@@ -57,6 +61,7 @@
             android:text=""
             android:textSize="25dp" />
 
+        <!--선택한 인원수가 출력될 자리-->
         <TextView
             android:id="@+id/t_resPerson1"
             android:layout_width="15dp"
@@ -83,6 +88,7 @@
             android:text=""
             android:textSize="25dp" />
 
+        <!--yeab_app_reserve_seat_page1에서 선택한 좌석 출력-->
         <TextView
         android:id="@+id/t_printSeat_page1_1"
         android:layout_width="30dp"
@@ -325,8 +331,6 @@
             android:textSize="25dp"
             android:text=""/>
 
-        <!-- page2 좌석 출력 -->
-
         <TextView
             android:id="@+id/t_printSeat_page1_71"
             android:layout_width="30dp"
@@ -336,6 +340,7 @@
             android:text=""
             android:textSize="25dp" />
 
+        <!--yeab_app_reserve_seat_page2에서 선택한 좌석 출력-->
         <TextView
             android:id="@+id/t_printSeat_page2_1"
             android:layout_width="30dp"
@@ -415,15 +420,6 @@
             android:layout_marginTop="200dp"
             android:textSize="25dp"
             android:text=""/>
-
-        <TextView
-            android:id="@+id/t_printSeat_page2_71"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="-30dp"
-            android:layout_marginTop="200dp"
-            android:text=""
-            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/t_printSeat_page2_35"
@@ -587,9 +583,16 @@
             android:textSize="25dp"
             android:text=""/>
 
+        <TextView
+            android:id="@+id/t_printSeat_page2_71"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="-31dp"
+            android:layout_marginTop="200dp"
+            android:textSize="25dp"
+            android:text=""/>
 
-        <!-- page3 좌석 출력 -->
-
+        <!--yeab_app_reserve_seat_page3에서 선택한 좌석 출력-->
         <TextView
             android:id="@+id/t_printSeat_page3_1"
             android:layout_width="30dp"
@@ -843,6 +846,7 @@
 
     </LinearLayout>
 
+    <!--종료 버튼-->
     <Button
         android:id="@+id/btn_quit"
         android:layout_width="100dp"

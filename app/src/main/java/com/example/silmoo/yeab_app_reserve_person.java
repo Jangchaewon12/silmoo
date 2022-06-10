@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +27,9 @@ public class yeab_app_reserve_person extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yeab_app_reserve_person);
 
-        /*yeab_app_reserve_time에서 무슨 시간대를 선택했는지 모르니까 다 전달받음*/
         intent = getIntent();
+
+        /*yeab_app_reserve_time에서 무슨 시간대를 선택했는지 모르니까 다 전달받음*/
         String rt_time_A = intent.getStringExtra("code_rt_time_A");
         /*코드를 사용해 'A' 값을 전달받고 그 값을 String rt_time_A에 저장*/
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
