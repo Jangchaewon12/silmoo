@@ -60,7 +60,6 @@ public class yeab_app_reserve_02 extends AppCompatActivity{
                             //배열 스트링 한 값 해싱 후 DB에 저장
                             addInputUserInfo(getArrayList);
 
-
                         }
                         //입력 성공 출력 Toast
                         Toast.makeText(yeab_app_reserve_02.this, "입력 성공", Toast.LENGTH_SHORT).show();
@@ -69,9 +68,6 @@ public class yeab_app_reserve_02 extends AppCompatActivity{
                         startActivity(intent);
                     }
                 }
-
-
-
 
             }
         });

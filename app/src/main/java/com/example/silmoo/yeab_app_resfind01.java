@@ -28,11 +28,11 @@ import javax.security.auth.callback.Callback;
 
 public class yeab_app_resfind01 extends AppCompatActivity{
 
-
     final FirebaseDatabase database = FirebaseDatabase.getInstance();   // 파이어베이스 데이터베이스 연동
     DatabaseReference ref = database.getReference();                    //DatabaseReference는 데이터베이스의 특정 위치로 연결하는 거
     private EditText yeab_app_resfind01_et_000;                         //전화번호 입력필드
-    private Button yeab_app_resfind01_btn_000;                          //'입력' 버튼
+    private Button yeab_app_resfind01_btn_000;                          //'입력' 버튼\
+    String space = "    ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +145,7 @@ public class yeab_app_resfind01 extends AppCompatActivity{
                                 Log.d("readSeat1Data", value);
                                 String readSeat1Data = value;
                                 readSeat2Data(new SimpleCallback() {
+                                    /*수정 시작 - 예인*/
                                     @Override
                                     public void onCallback(String value) {
                                         Log.d("readSeat2Data", value);
@@ -154,18 +155,20 @@ public class yeab_app_resfind01 extends AppCompatActivity{
                                             public void onCallback(String value) {
                                                 Log.d("readSeat3Data", value);
                                                 String readSeat3Data = value;
-                                                String code = readTimeData+readPersonData+readSeat1Data+readSeat2Data+readSeat3Data;
+                                                String code = readTimeData + readPersonData + readSeat1Data + readSeat2Data + readSeat3Data;
                                                 builder.setMessage(code).show();
+                                                    }
+                                                });
                                             }
                                         });
                                     }
                                 });
                             }
                         });
+
                     }
                 });
-            }
-        });
+
 
         builder.setNegativeButton("메인으로 돌아가기",
                 new DialogInterface.OnClickListener() {

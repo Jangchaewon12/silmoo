@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".yeab_app_reserve_01">
 
+    <!--처음부터 끝까지 '민예인' 작성-->
+
+    <!--큰 텍스트 출력-->
     <TextView
         android:id="@+id/t_personal1"
         android:layout_width="wrap_content"
@@ -17,6 +20,7 @@
         android:textSize="27dp"
         android:hint="- 개인정보 수집항목, 이용목적"/>
 
+    <!--세부내용-->
     <TextView
         android:id="@+id/t_personal1_1"
         android:layout_width="wrap_content"
@@ -28,6 +32,7 @@
 yeab에서는 이 데이터를 개인정보로 취급합니다. 최대 2달동안 개인정보가 보관되며 이는
 나중에 자동으로 삭제됩니다."/>
 
+    <!--큰 텍스트 출력-->
     <TextView
         android:id="@+id/t_personal2"
         android:layout_width="wrap_content"
@@ -38,6 +43,7 @@ yeab에서는 이 데이터를 개인정보로 취급합니다. 최대 2달동�
         android:textSize="27dp"
         android:hint="- 개인정보의 보유기간"/>
 
+    <!--세부내용-->
     <TextView
         android:id="@+id/t_personal2_1"
         android:layout_width="wrap_content"
@@ -49,6 +55,7 @@ yeab에서는 이 데이터를 개인정보로 취급합니다. 최대 2달동�
 있습니다. 데이터 저장 만료 기간이 지나면 yeab은 삭제 정책에 따라 데이터를 안전하고
 확실하게 삭제합니다."/>
 
+    <!--약관 동의 체크박스-->
     <CheckBox
         android:id="@+id/cb_personal1"
         android:layout_width="wrap_content"
@@ -72,12 +79,14 @@ yeab에서는 이 데이터를 개인정보로 취급합니다. 최대 2달동�
         android:text="위와 같은 주요 사항을 비롯하여 yeab 어플 개인 정보처리방침에
 설명되어 있는 개인정보 수집항목, 이용목적, 보유기간에 동의함"/>
 
+    <!--중첩 리니어 레이아웃을 사용해 한 줄에 표시될 수 있게끔 구현-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
+        <!--이전 버튼-->
         <ImageButton
             android:id="@+id/Ibtn_before"
             android:layout_width="55dp"
@@ -85,6 +94,7 @@ yeab에서는 이 데이터를 개인정보로 취급합니다. 최대 2달동�
             android:layout_marginLeft="30dp"
             app:srcCompat="@android:drawable/ic_media_previous"/>
 
+        <!--다음 버튼-->
         <ImageButton
             android:id="@+id/Ibtn_next"
             android:layout_width="55dp"

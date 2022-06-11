@@ -35,8 +35,9 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yeab_app_reserve_seat_page1);
 
-        /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         intent = getIntent();
+
+        /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         String rt_time_A = intent.getStringExtra("code_rt_time_A");
         /*코드를 사용해 'A' 값을 전달받고 그 값을 String rt_time_A에 저장*/
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
@@ -47,7 +48,6 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
         TextView t_resCodeTimeB = findViewById(R.id.t_resCodeTimeB);
         t_resCodeTimeB.setText(rt_time_B);
 
-
         String rt_time_C = intent.getStringExtra("code_rt_time_C");
         TextView t_resCodeTimeC = findViewById(R.id.t_resCodeTimeC);
         t_resCodeTimeC.setText(rt_time_C);
@@ -57,18 +57,15 @@ public class yeab_app_reserve_seat_page1 extends AppCompatActivity {
         t_resCodeTimeD.setText(rt_time_D);
 
         /*yeab_app_reserve_person에서 인원수 몇 명을 선택했는지 모르니까 다 전달받음*/
-
         String rs_person1 = intent.getStringExtra("code_person1");
         /*코드를 사용해 '1' 값을 전달받고 그 값을 String rs_person1에 저장*/
         TextView t_resPerson1 = findViewById(R.id.t_resPerson1);
         t_resPerson1.setText(rs_person1);
         /*1명이 출력될 텍스트뷰 자리 t_resPerson1에 '1' 값을 저장한 rs_person1을 출력*/
 
-
         String rs_person2 = intent.getStringExtra("code_person2");
         TextView t_resPerson2 = findViewById(R.id.t_resPerson2);
         t_resPerson2.setText(rs_person2);
-
 
         String rs_person3 = intent.getStringExtra("code_person3");
         TextView t_resPerson3 = findViewById(R.id.t_resPerson3);

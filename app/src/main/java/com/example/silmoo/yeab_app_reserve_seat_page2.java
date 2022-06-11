@@ -18,7 +18,6 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
     DatabaseReference ref = database.getReference(); // (DB관련 JCW가 작성.)
 
     // 처음부터 끝까지 '민예인' 작성
-
     /*변수 선언*/
     Intent intent;
     Button btn_seat1, btn_seat2, btn_seat3, btn_seat4;
@@ -35,8 +34,9 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yeab_app_reserve_seat_page2);
 
-        /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         intent = getIntent();
+
+        /*yeab_app_reserve_person에서 무슨 시간대를 전달했는지 모르니까 다 전달받음*/
         String rt_time_A = intent.getStringExtra("code_rt_time_A");
         /*코드를 사용해 'A' 값을 전달받고 그 값을 String rt_time_A에 저장*/
         TextView t_resCodeTimeA = findViewById(R.id.t_resCodeTimeA);
@@ -711,7 +711,6 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
                         intent.putExtra("code_person3", "3");
                     }
                 }
-
                 {
                     if (seat_page3_1 != null){
                         intent.putExtra("code_seat_page3_1", "1");
