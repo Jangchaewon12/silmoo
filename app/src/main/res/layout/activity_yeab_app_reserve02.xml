@@ -8,6 +8,9 @@
     android:gravity="center_horizontal"
     tools:context=".yeab_app_reserve_02">
 
+    <!--처음부터 끝까지 '민예인' 작성-->
+
+    <!--큰 텍스트 출력-->
     <TextView
         android:id="@+id/t_phoneNumWrite"
         android:layout_width="wrap_content"
@@ -18,6 +21,7 @@
         android:textColorHint="@color/black"
         android:textSize="30dp"/>
 
+    <!--전화번호 입력받음(전화번호 양식을 hint를 사용해 미리 적어놔 알아보기 쉽게끔 구현)-->
     <EditText
         android:id="@+id/et_phoneNumber"
         android:layout_width="wrap_content"
@@ -28,18 +32,21 @@
         android:ems="10"
         android:inputType="phone" />
 
+    <!--중첩 리니어 레이아웃을 사용해 한 줄에 표시될 수 있게끔 구현-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="100dp">
 
+        <!--이전 버튼-->
         <ImageButton
             android:id="@+id/Ibtn_before"
             android:layout_width="55dp"
             android:layout_height="51dp"
             app:srcCompat="@android:drawable/ic_media_previous"/>
 
+        <!--다음 버튼-->
         <ImageButton
             android:id="@+id/Ibtn_next"
             android:layout_width="55dp"
