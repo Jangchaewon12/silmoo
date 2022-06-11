@@ -8,6 +8,9 @@
     android:gravity="center_horizontal"
     tools:context=".yeab_app_reserve_person">
 
+    <!--처음부터 끝까지 '민예인' 작성-->
+
+    <!--큰 텍스트 출력-->
     <TextView
         android:id="@+id/t_resChoosePerson"
         android:layout_width="wrap_content"
@@ -17,6 +20,7 @@
         android:textColor="@color/black"
         android:textSize="35dp" />
 
+    <!--예약 인원 1명 버튼-->
     <Button
         android:id="@+id/btn_1person"
         android:layout_width="wrap_content"
@@ -27,6 +31,7 @@
         android:textColor="@color/black"
         android:textSize="26dp"/>
 
+    <!--예약 인원 2명 버튼-->
     <Button
         android:id="@+id/btn_2person"
         android:layout_width="wrap_content"
@@ -37,6 +42,7 @@
         android:textColor="@color/black"
         android:textSize="26dp"/>
 
+    <!--예약 인원 3명 버튼-->
     <Button
         android:id="@+id/btn_3person"
         android:layout_width="wrap_content"
@@ -47,6 +53,7 @@
         android:textColor="@color/black"
         android:textSize="26dp"/>
 
+    <!--예약 인원 선택 안내 문구-->
     <TextView
         android:id="@+id/t_resChoosePersonWarning"
         android:layout_width="wrap_content"
@@ -55,69 +62,67 @@
         android:text="※ 예약 인원은 최대 3명까지 선택 가능합니다."
         android:textSize="19dp" />
 
+    <!--중첩 리니어 레이아웃을 사용해 한 줄에 표시될 수 있게끔 구현-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!--이전 클래스에서 선택한 정보가 출력될 자리-->
         <TextView
             android:id="@+id/t_resCodeWrite"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="30dp"
             android:text="예약 코드: "
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
+        <!--선택한 시간대가 출력될 자리-->
         <TextView
             android:id="@+id/t_resCodeTimeA"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="40dp"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/t_resCodeTimeB"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="-30dp"
+            android:layout_width="18dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-18dp"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/t_resCodeTimeC"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="-30dp"
+            android:layout_width="18dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-18dp"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/t_resCodeTimeD"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="-40dp"
+            android:layout_width="18dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-19dp"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp">
-
-        <ImageButton
-            android:id="@+id/Ibtn_before"
-            android:layout_width="55dp"
-            android:layout_height="51dp"
-            android:layout_marginLeft="30dp"
-            app:srcCompat="@android:drawable/ic_media_previous"/>
-
-    </LinearLayout>
+    <!--이전 버튼-->
+    <ImageButton
+        android:id="@+id/Ibtn_before"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="-140dp"
+        app:srcCompat="@android:drawable/ic_media_previous"/>
 
 </LinearLayout>

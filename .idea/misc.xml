@@ -31,12 +31,12 @@
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_mapshow.xml" value="0.175" />
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve01.xml" value="0.1" />
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve02.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_person.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_res_code_print.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page1.xml" value="0.1" />
+        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_person.xml" value="1.2" />
+        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_res_code_print.xml" value="0.22" />
+        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page1.xml" value="0.33101529902642557" />
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page2.xml" value="0.1" />
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page3.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_time.xml" value="0.1" />
+        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_time.xml" value="0.22" />
       </map>
     </option>
   </component>
