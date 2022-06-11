@@ -18,7 +18,6 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
     DatabaseReference ref = database.getReference(); // (DB관련 JCW가 작성.)
 
     // 처음부터 끝까지 '민예인' 작성
-
     /*변수 선언*/
     Intent intent;
     Button btn_seat1, btn_seat2, btn_seat3, btn_seat4;
@@ -712,7 +711,6 @@ public class yeab_app_reserve_seat_page2 extends AppCompatActivity {
                         intent.putExtra("code_person3", "3");
                     }
                 }
-
                 {
                     if (seat_page3_1 != null){
                         intent.putExtra("code_seat_page3_1", "1");

@@ -27,21 +27,12 @@
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/yeab_app_resfind_pop.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/JCW/AndroidStudioProjects/silmoo/app/src/main/res/layout/yeab_success_final.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main_01.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main______01.xml" value="0.175" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_mapshow.xml" value="0.175" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve01.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve02.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_person.xml" value="1.2" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_res_code_print.xml" value="0.22" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page1.xml" value="0.33101529902642557" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page2.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page3.xml" value="0.1" />
-        <entry key="..\:/Users/minek/AndroidStudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_time.xml" value="0.22" />
+        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_main_01.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SeungYeon/StudioProjects/silmoo/app/src/main/res/layout/activity_yeab_app_reserve_seat_page2.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
