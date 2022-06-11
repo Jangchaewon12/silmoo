@@ -145,6 +145,7 @@ public class yeab_app_resfind01 extends AppCompatActivity{
                                 Log.d("readSeat1Data", value);
                                 String readSeat1Data = value;
                                 readSeat2Data(new SimpleCallback() {
+                                    /*수정 시작 - 예인*/
                                     @Override
                                     public void onCallback(String value) {
                                         Log.d("readSeat2Data", value);
